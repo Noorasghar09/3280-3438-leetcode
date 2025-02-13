@@ -1,0 +1,20 @@
+class Solution {
+public:
+    string convertDateToBinary(string date) {
+        int year = stoi(date.substr(0,4));
+        int month = stoi(date.substr(5,2));
+        int day = stoi(date.substr(8,2));
+    
+        string binYear = bitset<16>(year).to_string();
+        string binMon = bitset<16>(month).to_string();
+        string binDay = bitset<16>(day).to_string();
+
+        binYear.erase(0, binYear.find_first_not_of('0'));
+        binMon.erase(0, binMon.find_first_not_of('0'));
+        binDay.erase(0, binDay.find_first_not_of('0'));
+
+
+        return binYear + '-' + binMon + '-' + binDay;
+        
+    }
+};
